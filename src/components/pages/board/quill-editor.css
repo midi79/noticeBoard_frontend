@@ -1,0 +1,7 @@
+.ql-container {
+    height: 600px; /* Set your desired height */
+}
+
+.ql-editor {
+    height: calc(100% - 42px); /* Adjust the height based on the toolbar height */
+}

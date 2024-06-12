@@ -1,0 +1,14 @@
+.nav__wrapper {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 10px 10px 10px 30px;
+    background-color: beige;
+}
+
+.nav__menu {
+    font-size: 18px;
+    font-weight: 630;
+    color: brown;
+    cursor: pointer;
+}

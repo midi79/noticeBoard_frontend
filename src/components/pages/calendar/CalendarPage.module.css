@@ -1,0 +1,11 @@
+.calendar__wrapper {
+    width: 100vw;
+    height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 3px solid rgb(255, 206, 142);
+    border-bottom: 2px solid rgb(255, 222, 179);
+    background-color: rgb(246, 242, 236);
+}
