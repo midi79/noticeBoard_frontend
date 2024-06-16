@@ -9,7 +9,7 @@ interface ICheckboxProp {
     type: string;
 }
 
-const Checkbox = ({ label, isChecked, checkHandler, type, index = -1 }: ICheckboxProp) => {
+const Checkbox = ({ label, isChecked, checkHandler, type, index = -1, ...rest }: ICheckboxProp) => {
     //console.log(type + index + " Checkbox changed : " + isChecked);
 
     return (
@@ -21,6 +21,7 @@ const Checkbox = ({ label, isChecked, checkHandler, type, index = -1 }: ICheckbo
                 aria-hidden="true"
                 checked={isChecked}
                 onChange={checkHandler}
+                {...rest}
             />
             <label htmlFor={`custom-checkbox-${type}${index}`}>{label}</label>
         </div>

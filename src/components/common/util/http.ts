@@ -130,7 +130,7 @@ export async function updateBoardFavorite({ id, favorite }: IFavoriteProp) {
     }
 }
 
-export async function getBoard(id: string | null, type?: string) {
+export async function getBoard(id: string | null | undefined, type?: string) {
     let URL = `http://localhost:8080/api/v1/board/${id}`;
 
     if (type === "update") {

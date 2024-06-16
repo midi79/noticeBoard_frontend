@@ -1,4 +1,4 @@
-import { OptionHTMLAttributes, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
@@ -21,23 +21,27 @@ interface IBoardList {
     favorite: boolean;
     title: string;
     writer: string;
-    edit_date: Date;
+    editDate: Date;
     count: number;
     checked?: boolean;
 }
 
+interface ITestProp {
+    testData?: IBoardList[];
+}
+
 const listTitle: string[] = ["✓", "FAV", "ID", "TITLE", "WRITER", "EDIT-DATE", "COUNT"];
 
-const BoardPage = () => {
+const BoardListPage = ({ testData }: ITestProp) => {
     const [isCheckAll, setIsCheckAll] = useState<boolean>(false);
     const [boardListData, setBoardListData] = useState<IBoardList[]>([]);
     const [size, setSize] = useState<number>(15);
     const [page, setPage] = useState<number>(0);
     const [totalPages, setTotalPages] = useState<number>(0);
     const [searchOption, setSearchOption] = useState<any>("title");
-    const [searchTerm, setSearchTerm] = useState<string | boolean>("");
-    const [fromDate, setFromDate] = useState<string | null>(null);
-    const [toDate, setToDate] = useState<string | null>(null);
+    const [searchTerm, setSearchTerm] = useState<any>("");
+    const [fromDate, setFromDate] = useState<any>(null);
+    const [toDate, setToDate] = useState<any>(null);
 
     const navigate = useNavigate();
 
@@ -80,6 +84,9 @@ const BoardPage = () => {
         if (boardList?.content) {
             setBoardListData(boardList.content);
             setTotalPages(boardList.totalPages);
+        }
+        if (testData) {
+            setBoardListData(testData);
         }
     }, [boardList]);
 
@@ -139,10 +146,6 @@ const BoardPage = () => {
         setToDate(null);
     };
 
-    const searchInputChangeHandler = (event: any) => {
-        setSearchTerm(event.target.value);
-    };
-
     const searchSubmitHandler = async (event: any) => {
         event.preventDefault();
         listRefetch();
@@ -162,10 +165,6 @@ const BoardPage = () => {
         listRefetch();
     };
 
-    if (isListLoading) {
-        return <div>Loading Data...</div>;
-    }
-
     return (
         <section className={styles.board__section}>
             <div className={styles.board__wrapper}>
@@ -180,6 +179,7 @@ const BoardPage = () => {
                                 isChecked={isCheckAll}
                                 checkHandler={onSelectAllCheckboxHandler}
                                 type="all"
+                                data-testid="all"
                             />
                         </div>
                         <div className={styles.board__button}>
@@ -214,6 +214,7 @@ const BoardPage = () => {
                                                 checkHandler={() => onCheckboxHandler(index)}
                                                 index={index}
                                                 type="check"
+                                                data-testid="check"
                                             />
                                         </td>
                                         <td className={styles.td__favorite}>
@@ -222,6 +223,7 @@ const BoardPage = () => {
                                                 checkHandler={() => onFavoriteChangeHandler(item.id, item.favorite)}
                                                 index={index}
                                                 type="favorite"
+                                                data-testid="favorite"
                                             />
                                         </td>
                                         <td className={styles.td__id}>{item.id}</td>
@@ -282,7 +284,7 @@ const BoardPage = () => {
                                     id="searchTerm"
                                     type="text"
                                     value={searchTerm}
-                                    onChange={searchInputChangeHandler}
+                                    onChange={(event) => setSearchTerm(event.target.value)}
                                     placeholder="Search"
                                 />
                             )}
@@ -340,6 +342,7 @@ const BoardPage = () => {
                         </div>
                     )}
                 </div>
+                {isListLoading && <div>Loading Data....</div>}
                 {isListError && <div>{listError.message}</div>}
                 {isDeleteError && <div>{deleteError.message}</div>}
                 {isFavoriteError && <div>{favoriteError.message}</div>}
@@ -348,4 +351,4 @@ const BoardPage = () => {
     );
 };
 
-export default BoardPage;
+export default BoardListPage;

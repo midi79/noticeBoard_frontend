@@ -8,7 +8,7 @@ interface IToggleProp {
     type: string;
 }
 
-const Toggle = ({ isChecked, checkHandler, type, index = -1 }: IToggleProp) => {
+const Toggle = ({ isChecked, checkHandler, type, index = -1, ...rest }: IToggleProp) => {
     //    console.log(type + index + " Toggle changed : " + isChecked);
 
     return (
@@ -19,6 +19,7 @@ const Toggle = ({ isChecked, checkHandler, type, index = -1 }: IToggleProp) => {
                 className={styles.ikxBAC}
                 checked={isChecked}
                 onChange={checkHandler}
+                {...rest}
             />
         </div>
     );
