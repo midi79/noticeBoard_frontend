@@ -26,7 +26,9 @@ export async function createNewBoard(data: any) {
         }
     } catch (error: any) {
         throw new Error(
-            axios.isAxiosError(error) && error.response ? error.response.data : "An error occurred while save data"
+            axios.isAxiosError(error) && error.response
+                ? error.response.data
+                : "An error occurred while save board data"
         );
     }
 }
@@ -42,7 +44,9 @@ export async function updateBoard(data: any) {
         }
     } catch (error: any) {
         throw new Error(
-            axios.isAxiosError(error) && error.response ? error.response.data : "An error occurred while update data"
+            axios.isAxiosError(error) && error.response
+                ? error.response.data
+                : "An error occurred while update board data"
         );
     }
 }
@@ -92,7 +96,9 @@ export async function getBoards({ size, page, searchOption, searchTerm, fromDate
         }
     } catch (error: any) {
         throw new Error(
-            axios.isAxiosError(error) && error.response ? error.response.data : "An error occurred while fetching data"
+            axios.isAxiosError(error) && error.response
+                ? error.response.data
+                : "An error occurred while fetching board data"
         );
     }
 }
@@ -107,7 +113,9 @@ export async function deleteBoards(data: any) {
     } catch (error: any) {
         console.log(error);
         throw new Error(
-            axios.isAxiosError(error) && error.response ? error.response.data : "An error occurred while delete data"
+            axios.isAxiosError(error) && error.response
+                ? error.response.data
+                : "An error occurred while delete board data"
         );
     }
 }
@@ -148,7 +156,9 @@ export async function getBoard(id: string | null | undefined, type?: string) {
         }
     } catch (error: any) {
         throw new Error(
-            axios.isAxiosError(error) && error.response ? error.response.data : "An error occurred while fetching data"
+            axios.isAxiosError(error) && error.response
+                ? error.response.data
+                : "An error occurred while fetching board data"
         );
     }
 }
@@ -164,7 +174,9 @@ export async function verifyPassword(data: any) {
         return response.data;
     } catch (error: any) {
         throw new Error(
-            axios.isAxiosError(error) && error.response ? error.response.data : "An error occurred while save data"
+            axios.isAxiosError(error) && error.response
+                ? error.response.data
+                : "An error occurred while verify password"
         );
     }
 }

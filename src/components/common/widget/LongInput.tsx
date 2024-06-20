@@ -1,15 +1,13 @@
-import { InputHTMLAttributes, forwardRef } from "react";
+import { InputHTMLAttributes, forwardRef, useRef } from "react";
 import styles from "./LongInput.module.css";
 
-interface ILongInputProps {
+interface ILongInputProps extends InputHTMLAttributes<HTMLInputElement> {
     type: string;
     placeholder: string;
     name: string;
     width?: number;
     defaultValue?: string | number | readonly string[] | undefined;
     readOnly?: boolean | undefined;
-    rest?: InputHTMLAttributes<HTMLInputElement> | undefined | null;
-    ref?: React.ForwardedRef<HTMLInputElement> | undefined;
 }
 
 const LongInput = forwardRef<HTMLInputElement, ILongInputProps>(

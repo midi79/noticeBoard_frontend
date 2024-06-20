@@ -131,7 +131,6 @@ const BoardEditPage = () => {
     useEffect(() => {
         if (params && params.id) {
             setId(params.id);
-            console.log("params.id", params.id);
         }
     }, [params.id]);
 

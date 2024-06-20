@@ -5,7 +5,8 @@
     width: 300px;
     padding: 14px;
     gap: 16px;
-    border: 2px solid #ffc58a;
+    outline: 2px solid #ffc58a;
+    transition: outline-color 0.1s ease;
     background-color: white;
     box-shadow: 0px 2px 8px 0px rgba(228, 231, 236, 0.7);
 }
@@ -19,5 +20,9 @@
     line-height: 17px;
     background-color: #ffffff;
 
-    color: #434343;
+    color: #c26e07;
+}
+
+.long__input__wrapper:focus-within {
+    outline-color: #c98c4f;
 }

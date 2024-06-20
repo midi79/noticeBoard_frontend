@@ -1,0 +1,22 @@
+.calendar__week__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-bottom: 5px;
+}
+
+.calendar__week__day {
+    flex: 0 0 13.5%;
+    min-width: 50px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    color: #c06d08;
+    font-weight: 600;
+    border: 1px solid #ffa733;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #c4c4c4;
+}
