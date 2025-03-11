@@ -69,7 +69,7 @@ export async function getBoards({ size, page, searchOption, searchTerm, fromDate
 
     let URL = `http://localhost:8080/api/v1/board/all?size=${size}&page=${page}`;
 
-    if ((searchOption && searchTerm !== null) || searchOption === "date") {
+    if ((checkNotNull(searchOption) && checkNotNull(searchTerm)) || searchOption === "date") {
         URL = `http://localhost:8080/api/v1/board/search?size=${size}&page=${page}`;
 
         if (searchOption !== "date") {
@@ -179,4 +179,12 @@ export async function verifyPassword(data: any) {
                 : "An error occurred while verify password"
         );
     }
+}
+
+
+function checkNotNull(data: any) {
+    if (data || data === null || data == undefined || data === "") {
+        return false;
+    }
+    return true;
 }
