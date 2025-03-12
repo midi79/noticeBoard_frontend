@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Button from "../../common/widget/Button";
 import styles from "./CalendarRegDialog.module.css";
 import useRegDayStore from "../../common/store/useRegDay";

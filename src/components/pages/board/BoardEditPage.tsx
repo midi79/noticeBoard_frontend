@@ -7,7 +7,7 @@ import Button from "../../common/widget/Button";
 import LongInput from "../../common/widget/LongInput";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { createNewBoard, getBoard, queryClient, updateBoard } from "../../common/util/http";
+import { createNewBoard, getBoard, updateBoard } from "../../common/util/http";
 
 const BoardEditPage = () => {
     const [showValidation, setShowValidation] = useState<boolean>(false);

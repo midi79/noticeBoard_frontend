@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, forwardRef, useRef } from "react";
+import { InputHTMLAttributes, forwardRef } from "react";
 import styles from "./LongInput.module.css";
 
 interface ILongInputProps extends InputHTMLAttributes<HTMLInputElement> {

@@ -42,8 +42,15 @@ const CalendarPage = () => {
 
     useEffect(() => {
         if (scheduleData) {
-            const colorsMap = Map.groupBy(scheduleData, ({ color }: any) => color);
-            const colors = colorsMap.keys().toArray();
+            const colorsMap = scheduleData.reduce((acc: Map<string, any[]>, item: any) => {
+                const key = item.color;
+                if (!acc.has(key)) {
+                    acc.set(key, []);
+                }
+                acc.get(key)!.push(item);
+                return acc;
+            }, new Map());
+            const colors = [...colorsMap.keys()];
             setColorStore(colors);
         }
     }, [scheduleData]);

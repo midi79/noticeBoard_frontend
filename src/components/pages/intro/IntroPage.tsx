@@ -1,19 +1,17 @@
 import styles from "./IntroPage.module.css";
-import Button from "../../common/widget/Button";
 import { useEffect, useRef } from "react";
-import Input from "../../common/widget/Input";
 
 const IntroPage = () => {
     const idRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
+    // const passwordRef = useRef<HTMLInputElement>(null);
 
-    const onLoginClickHandler = () => {
-        console.log(idRef.current?.value, passwordRef.current?.value);
-    };
+    // const onLoginClickHandler = () => {
+    //     console.log(idRef.current?.value, passwordRef.current?.value);
+    // };
 
-    const onRegisterClickHandler = () => {
-        console.log("Register!");
-    };
+    // const onRegisterClickHandler = () => {
+    //     console.log("Register!");
+    // };
 
     useEffect(() => {
         idRef && idRef.current?.focus();

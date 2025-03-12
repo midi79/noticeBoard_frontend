@@ -85,7 +85,7 @@ const CalendarHeader = () => {
                         <ColorCheckbox
                             fillColor={color}
                             key={index}
-                            onClickHandler={(event: any) => onColorClickHandler(color)}
+                            onClickHandler={() => onColorClickHandler(color)}
                             isChecked={colorStore && colorStore.includes(color)}
                         />
                     ))}
